@@ -3,8 +3,8 @@ package dk.cphbusiness.mrv.twitterclone;
 import dk.cphbusiness.mrv.twitterclone.contract.PostManagement;
 import dk.cphbusiness.mrv.twitterclone.contract.UserManagement;
 import dk.cphbusiness.mrv.twitterclone.dto.UserCreation;
-import dk.cphbusiness.mrv.twitterclone.impl.PostManagementImplMrv;
-import dk.cphbusiness.mrv.twitterclone.impl.UserManagementImplMrv;
+import dk.cphbusiness.mrv.twitterclone.impl.PostManagementImpl;
+import dk.cphbusiness.mrv.twitterclone.impl.UserManagementImpl;
 import org.junit.jupiter.api.*;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.utility.DockerImageName;
@@ -52,8 +52,8 @@ public class TestBase {
         jedis.select(9);
         time = new TimeFake();
 
-        um = new UserManagementImplMrv(jedis);
-        pm = new PostManagementImplMrv(jedis, time);
+        um = new UserManagementImpl(jedis);
+        pm = new PostManagementImpl(jedis, time);
 
         //throw new RuntimeException("Read the warning above");
     }
